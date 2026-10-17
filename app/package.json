@@ -25,7 +25,8 @@
     "appId": "com.sdcx.walkerv2",
     "productName": "Walker v2",
     "directories": {
-      "output": "../dist"
+      "output": "../dist",
+      "buildResources": "buildres"
     },
     "files": [
       "**/*"
