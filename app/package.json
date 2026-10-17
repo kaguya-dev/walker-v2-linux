@@ -1,0 +1,43 @@
+{
+  "name": "walker-v2",
+  "productName": "Walker v2",
+  "version": "1.0.4",
+  "description": "Walker v2",
+  "main": "main/index.js",
+  "author": {
+    "name": "SDCX",
+    "email": "noreply@example.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "homepage": "https://github.com/kaguya-dev/walker-v2-linux",
+  "devDependencies": {
+    "electron": "30.5.1",
+    "electron-builder": "^25.1.8"
+  },
+  "scripts": {
+    "dist": "electron-builder --linux AppImage tar.gz"
+  },
+  "build": {
+    "appId": "com.sdcx.walkerv2",
+    "productName": "Walker v2",
+    "directories": {
+      "output": "../dist"
+    },
+    "files": [
+      "**/*"
+    ],
+    "linux": {
+      "category": "Utility",
+      "icon": "main/assets/icon.png",
+      "target": [
+        "AppImage",
+        "tar.gz"
+      ],
+      "artifactName": "Walker-v2-${version}-linux-${arch}.${ext}"
+    }
+  }
+}
