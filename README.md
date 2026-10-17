@@ -14,7 +14,7 @@ Download from [Releases](../../releases):
 ### Required: USB permission (udev)
 
 ```bash
-sudo cp 99-walker.rules /etc/udev/rules.d/
+sudo cp 70-walker.rules /etc/udev/rules.d/
 sudo udevadm control --reload && sudo udevadm trigger
 ```
 
