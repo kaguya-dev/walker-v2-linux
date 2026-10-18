@@ -33,13 +33,24 @@ Optional icon: `cp app/main/assets/icon.png ~/.local/share/icons/hicolor/512x512
 
 ## 2. USB permission (required)
 
-Without this, the app opens but can't talk to the keyboard. Run each command separately (fish users: don't paste them as one line):
+Without this, the app opens but can't talk to the keyboard.
+
+If you only downloaded the AppImage (without cloning the repo), run this one-liner to download and install the rule directly:
 
 ```bash
-sudo cp 70-walker.rules /etc/udev/rules.d/
+sudo curl -fsSL https://raw.githubusercontent.com/kaguya-dev/walker-v2-linux/main/70-walker.rules -o /etc/udev/rules.d/70-walker.rules
 sudo udevadm control --reload
 sudo udevadm trigger
 ```
+
+*Alternatively, without curl:*
+```bash
+echo 'KERNEL=="hidraw*", ATTRS{idVendor}=="36ae", ATTRS{idProduct}=="fe9c", MODE="0660", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/70-walker.rules
+sudo udevadm control --reload
+sudo udevadm trigger
+```
+
+*(If you cloned the repo with git, you can run `sudo cp 70-walker.rules /etc/udev/rules.d/` from inside the repository folder).*
 
 Then **unplug and replug** the keyboard and restart the app.
 
